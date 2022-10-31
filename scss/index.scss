@@ -1,0 +1,108 @@
+@import "base";
+#index_page {
+  .banner_block {
+    .banner_slider {
+      overflow: hidden;
+      .banner_item {
+        position: relative;
+        .text_block {
+          position: absolute;
+          top: 50%;
+          left: var(--container_left_space);
+          transform: translateY(-50%);
+          .banner_txt {
+            font-size: 44px;
+            color: #fff;
+            font-family: $font_secondary;
+            font-weight: 600;
+            margin: 0 0 15px;
+          }
+          .banner_subtxt {
+            @extend .text_l;
+            color: #fff;
+            margin-bottom: 45px;
+          }
+        }
+      }
+
+      .slick-dots {
+        bottom: 15px;
+        text-align: unset;
+        left: var(--container_left_space);
+        width: auto;
+        li {
+          width: 8px;
+          height: 8px;
+          button {
+            font-size: 0;
+            line-height: 0;
+            display: block;
+            width: 8px;
+            height: 8px;
+            padding: 5px;
+            cursor: pointer;
+            color: transparent;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            &::before {
+              font-size: 10px;
+              color: #fff;
+              opacity: 1;
+              content: " ";
+              border-radius: 50%;
+              width: 8px;
+              height: 8px;
+              background-color: transparent;
+              border: 1px solid #fff;
+            }
+          }
+          &.slick-active {
+            button {
+              &::before {
+                background-color: #fff;
+                border-radius: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .explore_products {
+    .explore_products_inner {
+      padding-left: var(--container_left_space);
+      .explore_products_slider {
+        overflow: hidden;
+        .explore_products_item {
+          width: 280px;
+          margin-left: 20px;
+          .img_sec {
+            img {
+              border-radius: 8px;
+            }
+          }
+          .product_name {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            p {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .head_block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    .text_xxl {
+      margin: 0;
+    }
+  }
+}
