@@ -409,6 +409,24 @@ section {
         margin-top: 15px; }
         #index_page .explore_products .explore_products_inner .explore_products_slider .explore_products_item .product_name p {
           margin: 0; }
+#index_page .ayurvedic_legacy {
+  background-image: url(../img/ayurvedic_bg.jpg); }
+  #index_page .ayurvedic_legacy .ayurvedic_legacy_intro {
+    position: relative; }
+    #index_page .ayurvedic_legacy .ayurvedic_legacy_intro .text_xxxxxxxl {
+      line-height: 1;
+      position: relative;
+      z-index: 1; }
+      #index_page .ayurvedic_legacy .ayurvedic_legacy_intro .text_xxxxxxxl span {
+        display: block; }
+    #index_page .ayurvedic_legacy .ayurvedic_legacy_intro .legacy_img {
+      position: absolute;
+      top: 0;
+      right: 15%; }
+    #index_page .ayurvedic_legacy .ayurvedic_legacy_intro .legacy_txt {
+      position: absolute;
+      bottom: 15%;
+      right: 0; }
 #index_page .head_block {
   display: flex;
   justify-content: space-between;
@@ -416,5 +434,37 @@ section {
   margin-bottom: 30px; }
   #index_page .head_block .text_xxl {
     margin: 0; }
+
+.cell {
+  position: relative; }
+  .cell #svgfile {
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .cell .hoverblock {
+    position: absolute; }
+  .cell .slider {
+    width: 100% !important;
+    height: 100% !important; }
+  .cell .point {
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid; }
+    .cell .point.point1 {
+      left: 0;
+      bottom: 0; }
+    .cell .point.point2 {
+      bottom: 35%;
+      left: 1%; }
+    .cell .point.point3 {
+      left: 3%;
+      top: 17%; }
 
 /*# sourceMappingURL=index.css.map */

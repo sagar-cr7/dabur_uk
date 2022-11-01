@@ -126,12 +126,30 @@
           </div>
         </div>
       </section>
+      <section class="ayurvedic_legacy ptb_60">
+        <div class="container">
+          <div class="ayurvedic_legacy_intro">
+            <h1 class="text_xxxxxxxl">
+              <span>Our</span>
+              <span>Ayurvedic</span>
+            </h1>
+            <div class="legacy_img">
+              <img src="img/legacy_img.png" class="img-responsive" alt="" />
+            </div>
+            <h1 class="text_xxxxxxxl legacy_txt">Legacy</h1>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/fontawesome.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/scroll-out.min.js"></script>
     <script>
+      $(window).load(function () {
+        var legacy_img = $(".legacy_img").outerHeight();
+        $(".ayurvedic_legacy_intro").outerHeight(legacy_img);
+      });
       $(".banner_slider").slick({
         dots: false,
         arrows: true,

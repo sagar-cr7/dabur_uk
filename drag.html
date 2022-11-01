@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/jquery.roundslider/1.0/roundslider.min.css"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+    <style>
+      .rs-handle {
+        background-color: #f3f3f3;
+        box-shadow: 0px 0px 4px 0px #000;
+      }
+    </style>
+  </head>
+  <body>
+    <main style="margin: 100px">
+      <!-- <div class="dropzone" id="droptarget"></div> -->
+
+      <br />
+      <section>
+        <div class="cell">
+          <!-- <div class="point point1">1</div>
+          <div class="point point2">2</div>
+          <div class="point point3">3</div> -->
+          <!-- <div class="hoverblock hoverblock1">
+            <img src="img/hove-product1.png" class="" alt="" />
+          </div> -->
+          <div id="svgfile"></div>
+
+          <div class="slider" id="red"></div>
+        </div>
+      </section>
+    </main>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/fontawesome.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/scroll-out.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/round-slider@1.5.1/dist/roundslider.min.js"></script>
+    <script>
+      $("#svgfile").load("img/rounder.html");
+
+      $(window).load(function () {
+        var eclipsa = $("#Ellipse_334").offset();
+        console.log(eclipsa.top);
+        function setPos(targetid, targetclass) {
+          var y = $(targetid).offset().top;
+          var x = $(targetid).offset().left;
+          $(targetclass).css({ top: y, left: x });
+        }
+        var template = ` `;
+        var cell = $(".cell");
+        $(".hoverblock").each(function (ind, item) {});
+        for (let index = 1; index < 18; index++) {
+          // const element = array[index];
+          template = `<div class="hoverblock hoverblock${index}">
+            <img src="img/hove-product1.png" class="" alt="" />
+          </div>`;
+          cell.prepend(template);
+        }
+        setPos("#Ellipse_334", ".hoverblock1");
+      });
+
+      $(".slider").roundSlider({
+        circleShape: "half-top",
+        sliderType: "min-range",
+        startAngle: 315,
+        handleSize: 16,
+        width: 8,
+        radius: 384,
+        svgMode: true,
+        lineCap: "round",
+      });
+      $("#red").roundSlider({ value: 0, rangeColor: "#f4e9e1" });
+    </script>
+  </body>
+</html>

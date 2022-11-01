@@ -95,6 +95,30 @@
       }
     }
   }
+  .ayurvedic_legacy {
+    background-image: url(../img/ayurvedic_bg.jpg);
+    .ayurvedic_legacy_intro {
+      position: relative;
+      .text_xxxxxxxl {
+        line-height: 1;
+        position: relative;
+        z-index: 1;
+        span {
+          display: block;
+        }
+      }
+      .legacy_img {
+        position: absolute;
+        top: 0;
+        right: 15%;
+      }
+      .legacy_txt {
+        position: absolute;
+        bottom: 15%;
+        right: 0;
+      }
+    }
+  }
 
   .head_block {
     display: flex;
@@ -103,6 +127,45 @@
     margin-bottom: 30px;
     .text_xxl {
       margin: 0;
+    }
+  }
+}
+.cell {
+  position: relative;
+  #svgfile {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .hoverblock {
+    position: absolute;
+  }
+  .slider {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .point {
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    &.point1 {
+      left: 0;
+      bottom: 0;
+    }
+    &.point2 {
+      bottom: 35%;
+      left: 1%;
+    }
+    &.point3 {
+      left: 3%;
+      top: 17%;
     }
   }
 }
