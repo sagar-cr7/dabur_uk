@@ -16,6 +16,10 @@
     />
     <link
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/jquery.roundslider/1.0/roundslider.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css"
     />
     <link
@@ -138,6 +142,92 @@
             </div>
             <h1 class="text_xxxxxxxl legacy_txt">Legacy</h1>
           </div>
+          <div class="cell">
+            <div id="svgfile"></div>
+            <div class="slider" id="slider"></div>
+            <div class="year year_start">1948</div>
+            <div class="year year_end">2022</div>
+            <div class="parentTimeline">
+              <div class="timeline timeline1">
+                <img src="img/legacyimg1.png" alt="" />
+                <p>1884</p>
+              </div>
+              <div class="timeline timeline2">
+                <img src="img/legacyimg2.png" alt="" />
+                <p>2005</p>
+              </div>
+              <div class="timeline timeline3">
+                <img src="img/legacyimg4.png" alt="" />
+                <p>2017</p>
+              </div>
+              <div class="timeline timeline4">
+                <img src="img/legacyimg4.png" alt="" />
+                <p>2020</p>
+              </div>
+              <div class="timeline timeline5">
+                <img src="img/legacyimg2.png" alt="" />
+                <p>1949</p>
+              </div>
+              <div class="timeline timeline6">
+                <img src="img/legacyimg4.png" alt="" />
+                <p>1949</p>
+              </div>
+              <div class="timeline timeline7">
+                <img src="img/legacyimg4.png" alt="" />
+                <p>1949</p>
+              </div>
+              <div class="timeline timeline8">
+                <img src="img/legacyimg1.png" alt="" />
+                <p>1949</p>
+              </div>
+              <div class="timeline timeline9">
+                <img src="img/legacyimg3.png" alt="" />
+                <p>1949</p>
+              </div>
+              <div class="timeline timeline10">
+                <img src="img/legacyimg2.png" alt="" />
+                <p>1949</p>
+              </div>
+              <div class="timeline timeline11">
+                <img src="img/legacyimg1.png" alt="" />
+                <p>1949</p>
+              </div>
+              <div class="timeline timeline12">
+                <img src="img/legacyimg3.png" alt="" />
+                <p>1949</p>
+              </div>
+              <div class="timeline timeline13">
+                <img src="img/legacyimg2.png" alt="" />
+                <p>1949</p>
+              </div>
+              <div class="timeline timeline14">
+                <img src="img/legacyimg1.png" alt="" />
+                <p>1949</p>
+              </div>
+              <div class="timeline timeline15">
+                <img src="img/legacyimg4.png" alt="" />
+                <p>1949</p>
+              </div>
+              <div class="timeline timeline16">
+                <img src="img/legacyimg3.png" alt="" />
+                <p>1949</p>
+              </div>
+              <div class="timeline timeline17">
+                <img src="img/legacyimg2.png" alt="" />
+                <p>1949</p>
+              </div>
+            </div>
+          </div>
+          <div class="slider_sentence">
+            <h4 class="text_xl">
+              We strongly believe in the ‘science of ayurveda’ enabling us to
+              <br class="hidden-xs" />
+              have the world’s largest herbal and natural product portfolio.
+            </h4>
+            <div class="btn-sec">
+              <a href="" class="btn btn_primary">Learn More</a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -145,10 +235,83 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/fontawesome.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/scroll-out.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/round-slider@1.5.1/dist/roundslider.min.js"></script>
     <script>
+      var winW = $(window).outerWidth();
+      var winH = $(window).outerHeight();
+      $("#svgfile").load("img/rounder.html");
       $(window).load(function () {
         var legacy_img = $(".legacy_img").outerHeight();
         $(".ayurvedic_legacy_intro").outerHeight(legacy_img);
+        var svgCirclePath = $("#Year_Ellipse_355 circle");
+        svgCirclePath.each(function (ind, item) {
+          $(item).attr("class", "dot");
+        });
+
+        var template = ` `;
+        var cell = $(".cell");
+        for (let index = 1; index < 18; index++) {
+          // const element = array[index];
+          template = `<div id="dot${index}" class="hoverblock  dot${index}">
+            <img src="img/hove-product1.png" class="" alt="" />
+          </div>`;
+          cell.prepend(template);
+        }
+        $(".dot1").show();
+        var hoverblock = $(".hoverblock");
+        var commonClass = document.querySelectorAll(".dot");
+        var commonClassArray = Array.from(commonClass);
+        $(commonClassArray).each(function (i, val) {
+          var bbox = val.getBBox();
+          var ctm = val.getCTM();
+          var cx = bbox.x + bbox.width / 2;
+          var cy = bbox.y + bbox.height / 2;
+          var pt = document.getElementById("semiRounder").createSVGPoint();
+          pt.x = cx;
+          pt.y = cy;
+          pt = pt.matrixTransform(ctm);
+          $(".dot" + (i + 1)).css({ top: pt.y, left: pt.x });
+          // console.log(pt.x, pt.y);
+          // EachClassOffset = EachClass.offset();
+          // console.log(EachClassOffset.top);
+        });
+        var slider = $(".slider").outerWidth();
+        $(".cell").outerWidth(slider);
+      });
+      $(".slider").roundSlider({
+        circleShape: "half-top",
+        sliderType: "min-range",
+        // startAngle: 315,
+        handleSize: 16,
+        width: 8,
+        // radius: 384,
+        svgMode: true,
+        lineCap: "round",
+        // step: 100 / 17,
+        min: 0,
+        max: 16,
+        tooltipFormat: "tooltipVal1",
+      });
+      function tooltipVal1(args) {
+        console.log(args);
+        // if (args.value == 1) {
+        //   $("dot" + (args.value + 1)).show();
+        // } else {
+        //   $("dot" + args.value + 1).hide();
+        // }
+        $(".hoverblock").hide();
+        $(".timeline").hide();
+        $(".dot" + (args.value + 1)).show();
+        $(".timeline" + (args.value + 1)).show();
+        // console.log(
+        //   "#timeline" + args.value,
+        //   $("#timeline" + args.value).addClass("active")
+        // );
+      }
+      $("#slider").roundSlider({
+        radius: 384,
+        value: 0,
+        rangeColor: "#f4e9e1",
       });
       $(".banner_slider").slick({
         dots: false,

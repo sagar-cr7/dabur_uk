@@ -132,40 +132,87 @@
 }
 .cell {
   position: relative;
+  margin: 0 auto;
+
   #svgfile {
     position: absolute;
     top: 0;
-    left: 0;
+    // left: 0;
+  }
+  .year {
+    position: absolute;
+    bottom: -25px;
+    @extend .text_sm;
+    margin: 0;
+    color: #83b296;
+    &.year_end {
+      left: -10px;
+    }
+    &.year_start {
+      right: 10px;
+    }
   }
   .hoverblock {
     position: absolute;
+    transform: translate(-50%, -50%);
+    display: none;
+    border: 8px solid $color_green;
+    border-radius: 100%;
+    z-index: 1;
+  }
+  .timeline {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 10%);
+    display: none;
+    &.timeline1 {
+      display: block;
+    }
+    p {
+      font-size: 50px;
+      color: #83b296;
+      font-family: $font_secondary;
+      font-weight: 200;
+      text-align: center;
+      margin: 0;
+    }
   }
   .slider {
-    width: 100% !important;
-    height: 100% !important;
+    .rs-tooltip {
+      opacity: 0;
+      z-index: -1;
+    }
+    // width: 100% !important;
+    // height: 100% !important;
+    // margin: 0 auto;
   }
-  .point {
-    position: absolute;
-    z-index: 1;
-    background: #fff;
-    height: 20px;
-    width: 20px;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid;
-    &.point1 {
-      left: 0;
-      bottom: 0;
-    }
-    &.point2 {
-      bottom: 35%;
-      left: 1%;
-    }
-    &.point3 {
-      left: 3%;
-      top: 17%;
-    }
-  }
+  // .point {
+  //   position: absolute;
+  //   z-index: 1;
+  //   background: #fff;
+  //   height: 20px;
+  //   width: 20px;
+  //   border-radius: 100%;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   border: 1px solid;
+  //   &.point1 {
+  //     left: 0;
+  //     bottom: 0;
+  //   }
+  //   &.point2 {
+  //     bottom: 35%;
+  //     left: 1%;
+  //   }
+  //   &.point3 {
+  //     left: 3%;
+  //     top: 17%;
+  //   }
+  // }
+}
+.slider_sentence {
+  text-align: center;
+  margin: 50px 0 0;
 }

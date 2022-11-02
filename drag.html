@@ -24,15 +24,78 @@
       <br />
       <section>
         <div class="cell">
-          <!-- <div class="point point1">1</div>
-          <div class="point point2">2</div>
-          <div class="point point3">3</div> -->
-          <!-- <div class="hoverblock hoverblock1">
-            <img src="img/hove-product1.png" class="" alt="" />
-          </div> -->
           <div id="svgfile"></div>
-
-          <div class="slider" id="red"></div>
+          <div class="slider" id="slider"></div>
+          <div class="parentTimeline">
+            <div class="timeline timeline1">
+              <img src="img/legacyimg1.png" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline2">
+              <img src="img/product2.jpg" alt="" />
+              <p>1994</p>
+            </div>
+            <div class="timeline timeline3">
+              <img src="img/product3.jpg" alt="" />
+              <p>2000</p>
+            </div>
+            <div class="timeline timeline4">
+              <img src="img/product4.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline5">
+              <img src="img/product5.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline6">
+              <img src="img/product1.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline7">
+              <img src="img/product2.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline8">
+              <img src="img/product3.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline9">
+              <img src="img/product4.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline10">
+              <img src="img/product5.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline11">
+              <img src="img/product1.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline12">
+              <img src="img/product2.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline13">
+              <img src="img/product3.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline14">
+              <img src="img/product4.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline15">
+              <img src="img/product5.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline16">
+              <img src="img/product4.jpg" alt="" />
+              <p>1949</p>
+            </div>
+            <div class="timeline timeline17">
+              <img src="img/product2.jpg" alt="" />
+              <p>1949</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -42,40 +105,82 @@
     <script src="js/scroll-out.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/round-slider@1.5.1/dist/roundslider.min.js"></script>
     <script>
+      var winW = $(window).outerWidth();
+      var winH = $(window).outerHeight();
       $("#svgfile").load("img/rounder.html");
 
       $(window).load(function () {
-        var eclipsa = $("#Ellipse_334").offset();
-        console.log(eclipsa.top);
-        function setPos(targetid, targetclass) {
-          var y = $(targetid).offset().top;
-          var x = $(targetid).offset().left;
-          $(targetclass).css({ top: y, left: x });
-        }
+        var svgCirclePath = $("#Year_Ellipse_355 circle");
+        svgCirclePath.each(function (ind, item) {
+          $(item).attr("class", "dot");
+        });
+
         var template = ` `;
         var cell = $(".cell");
-        $(".hoverblock").each(function (ind, item) {});
         for (let index = 1; index < 18; index++) {
           // const element = array[index];
-          template = `<div class="hoverblock hoverblock${index}">
+          template = `<div id="dot${index}" class="hoverblock  dot${index}">
             <img src="img/hove-product1.png" class="" alt="" />
           </div>`;
           cell.prepend(template);
         }
-        setPos("#Ellipse_334", ".hoverblock1");
+        $(".dot1").show();
+        var hoverblock = $(".hoverblock");
+        var commonClass = document.querySelectorAll(".dot");
+        var commonClassArray = Array.from(commonClass);
+        $(commonClassArray).each(function (i, val) {
+          var bbox = val.getBBox();
+          var ctm = val.getCTM();
+          var cx = bbox.x + bbox.width / 2;
+          var cy = bbox.y + bbox.height / 2;
+          var pt = document.getElementById("semiRounder").createSVGPoint();
+          pt.x = cx;
+          pt.y = cy;
+          pt = pt.matrixTransform(ctm);
+          $(".dot" + (i + 1)).css({ top: pt.y, left: pt.x });
+          // console.log(pt.x, pt.y);
+          // EachClassOffset = EachClass.offset();
+          // console.log(EachClassOffset.top);
+        });
+        var slider = $(".slider").outerWidth();
+        $(".cell").outerWidth(slider);
       });
 
       $(".slider").roundSlider({
         circleShape: "half-top",
         sliderType: "min-range",
-        startAngle: 315,
+        // startAngle: 315,
         handleSize: 16,
         width: 8,
-        radius: 384,
+        // radius: 384,
         svgMode: true,
         lineCap: "round",
+        // step: 100 / 17,
+        min: 0,
+        max: 16,
+        tooltipFormat: "tooltipVal1",
       });
-      $("#red").roundSlider({ value: 0, rangeColor: "#f4e9e1" });
+      function tooltipVal1(args) {
+        console.log(args);
+        // if (args.value == 1) {
+        //   $("dot" + (args.value + 1)).show();
+        // } else {
+        //   $("dot" + args.value + 1).hide();
+        // }
+        $(".hoverblock").hide();
+        $(".timeline").hide();
+        $(".dot" + (args.value + 1)).show();
+        $(".timeline" + (args.value + 1)).show();
+        // console.log(
+        //   "#timeline" + args.value,
+        //   $("#timeline" + args.value).addClass("active")
+        // );
+      }
+      $("#slider").roundSlider({
+        radius: 384,
+        value: 0,
+        rangeColor: "#f4e9e1",
+      });
     </script>
   </body>
 </html>

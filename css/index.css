@@ -236,7 +236,7 @@ section {
   margin: 0 0 20px;
   color: #073711; }
 
-.text_sm, .btn_ternary {
+.text_sm, .btn_ternary, .cell .year {
   font-size: 16px;
   font-family: "Outfit";
   font-weight: 500;
@@ -436,35 +436,48 @@ section {
     margin: 0; }
 
 .cell {
-  position: relative; }
+  position: relative;
+  margin: 0 auto; }
   .cell #svgfile {
     position: absolute;
-    top: 0;
-    left: 0; }
-  .cell .hoverblock {
-    position: absolute; }
-  .cell .slider {
-    width: 100% !important;
-    height: 100% !important; }
-  .cell .point {
+    top: 0; }
+  .cell .year {
     position: absolute;
-    z-index: 1;
-    background: #fff;
-    height: 20px;
-    width: 20px;
+    bottom: -25px;
+    margin: 0;
+    color: #83b296; }
+    .cell .year.year_end {
+      left: -10px; }
+    .cell .year.year_start {
+      right: 10px; }
+  .cell .hoverblock {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: none;
+    border: 8px solid #0b6b37;
     border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid; }
-    .cell .point.point1 {
-      left: 0;
-      bottom: 0; }
-    .cell .point.point2 {
-      bottom: 35%;
-      left: 1%; }
-    .cell .point.point3 {
-      left: 3%;
-      top: 17%; }
+    z-index: 1; }
+  .cell .timeline {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 10%);
+    display: none; }
+    .cell .timeline.timeline1 {
+      display: block; }
+    .cell .timeline p {
+      font-size: 50px;
+      color: #83b296;
+      font-family: "Outfit";
+      font-weight: 200;
+      text-align: center;
+      margin: 0; }
+  .cell .slider .rs-tooltip {
+    opacity: 0;
+    z-index: -1; }
+
+.slider_sentence {
+  text-align: center;
+  margin: 50px 0 0; }
 
 /*# sourceMappingURL=index.css.map */
