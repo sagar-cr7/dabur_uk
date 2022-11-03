@@ -118,6 +118,25 @@
         right: 0;
       }
     }
+    .icon_bx {
+      width: 918px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+      background: #fff;
+      padding: 25px 45px 25px;
+      border-radius: 30px;
+      .icon_item {
+        text-align: center;
+        p {
+          margin: 0;
+        }
+        img {
+          margin: 0 auto 15px;
+        }
+      }
+    }
   }
 
   .head_block {
@@ -137,7 +156,7 @@
   #svgfile {
     position: absolute;
     top: 0;
-    // left: 0;
+    z-index: 1;
   }
   .year {
     position: absolute;
@@ -149,26 +168,34 @@
       left: -10px;
     }
     &.year_start {
-      right: 10px;
+      right: -10px;
     }
   }
   .hoverblock {
     position: absolute;
     transform: translate(-50%, -50%);
     display: none;
-    border: 8px solid $color_green;
-    border-radius: 100%;
     z-index: 1;
+    // width: 60px;
+    // height: 60px;
+    img {
+      border: 8px solid $color_green;
+      border-radius: 100%;
+    }
   }
   .timeline {
     position: absolute;
     left: 50%;
     bottom: 0;
-    transform: translate(-50%, 10%);
-    display: none;
-    &.timeline1 {
-      display: block;
-    }
+    // display: none;
+    opacity: 0;
+    transform: scale(0.5) translate(-50%, 10%);
+    transform-origin: left;
+    transition: transform 0.5s;
+
+    // &.timeline1 {
+    //   display: block;
+    // }
     p {
       font-size: 50px;
       color: #83b296;
@@ -177,40 +204,21 @@
       text-align: center;
       margin: 0;
     }
+    &.timeline_animate {
+      // display: block;
+      transform: scale(1) translate(-50%, 10%);
+      opacity: 1;
+    }
   }
   .slider {
     .rs-tooltip {
       opacity: 0;
       z-index: -1;
     }
-    // width: 100% !important;
-    // height: 100% !important;
-    // margin: 0 auto;
+    .rs-handle {
+      opacity: 0;
+    }
   }
-  // .point {
-  //   position: absolute;
-  //   z-index: 1;
-  //   background: #fff;
-  //   height: 20px;
-  //   width: 20px;
-  //   border-radius: 100%;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   border: 1px solid;
-  //   &.point1 {
-  //     left: 0;
-  //     bottom: 0;
-  //   }
-  //   &.point2 {
-  //     bottom: 35%;
-  //     left: 1%;
-  //   }
-  //   &.point3 {
-  //     left: 3%;
-  //     top: 17%;
-  //   }
-  // }
 }
 .slider_sentence {
   text-align: center;

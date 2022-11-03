@@ -427,6 +427,21 @@ section {
       position: absolute;
       bottom: 15%;
       right: 0; }
+  #index_page .ayurvedic_legacy .icon_bx {
+    width: 918px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    background: #fff;
+    padding: 25px 45px 25px;
+    border-radius: 30px; }
+    #index_page .ayurvedic_legacy .icon_bx .icon_item {
+      text-align: center; }
+      #index_page .ayurvedic_legacy .icon_bx .icon_item p {
+        margin: 0; }
+      #index_page .ayurvedic_legacy .icon_bx .icon_item img {
+        margin: 0 auto 15px; }
 #index_page .head_block {
   display: flex;
   justify-content: space-between;
@@ -440,7 +455,8 @@ section {
   margin: 0 auto; }
   .cell #svgfile {
     position: absolute;
-    top: 0; }
+    top: 0;
+    z-index: 1; }
   .cell .year {
     position: absolute;
     bottom: -25px;
@@ -449,22 +465,23 @@ section {
     .cell .year.year_end {
       left: -10px; }
     .cell .year.year_start {
-      right: 10px; }
+      right: -10px; }
   .cell .hoverblock {
     position: absolute;
     transform: translate(-50%, -50%);
     display: none;
-    border: 8px solid #0b6b37;
-    border-radius: 100%;
     z-index: 1; }
+    .cell .hoverblock img {
+      border: 8px solid #0b6b37;
+      border-radius: 100%; }
   .cell .timeline {
     position: absolute;
     left: 50%;
     bottom: 0;
-    transform: translate(-50%, 10%);
-    display: none; }
-    .cell .timeline.timeline1 {
-      display: block; }
+    opacity: 0;
+    transform: scale(0.5) translate(-50%, 10%);
+    transform-origin: left;
+    transition: transform 0.5s; }
     .cell .timeline p {
       font-size: 50px;
       color: #83b296;
@@ -472,9 +489,14 @@ section {
       font-weight: 200;
       text-align: center;
       margin: 0; }
+    .cell .timeline.timeline_animate {
+      transform: scale(1) translate(-50%, 10%);
+      opacity: 1; }
   .cell .slider .rs-tooltip {
     opacity: 0;
     z-index: -1; }
+  .cell .slider .rs-handle {
+    opacity: 0; }
 
 .slider_sentence {
   text-align: center;

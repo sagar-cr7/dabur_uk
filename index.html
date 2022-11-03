@@ -148,7 +148,7 @@
             <div class="year year_start">1948</div>
             <div class="year year_end">2022</div>
             <div class="parentTimeline">
-              <div class="timeline timeline1">
+              <div class="timeline timeline1 timeline_animate">
                 <img src="img/legacyimg1.png" alt="" />
                 <p>1884</p>
               </div>
@@ -229,6 +229,46 @@
             </div>
           </div>
         </div>
+        <div class="icon_bx">
+          <div class="icon_item">
+            <img src="img/icon1.png" class="img-responsive" alt="" />
+            <p class="text_sm">
+              Clinically Proven <br />
+              Ingredients
+            </p>
+          </div>
+          <div class="icon_item">
+            <img src="img/icon1.png" class="img-responsive" alt="" />
+            <p class="text_sm">
+              Cruelty<br />
+              Free
+            </p>
+          </div>
+          <div class="icon_item">
+            <img src="img/icon1.png" class="img-responsive" alt="" />
+            <p class="text_sm">
+              Ayush <br />
+              Certified
+            </p>
+          </div>
+          <div class="icon_item">
+            <img src="img/icon1.png" class="img-responsive" alt="" />
+            <p class="text_sm">
+              100% <br />
+              Ayurvedic
+            </p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="head_block">
+            <h3 class="text_xxl">Our most popular innovations</h3>
+            <div class="btn_block">
+              <a href="" class="btn btn_ternary">Shop All</a>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <script src="js/jquery.min.js"></script>
@@ -239,7 +279,7 @@
     <script>
       var winW = $(window).outerWidth();
       var winH = $(window).outerHeight();
-      $("#svgfile").load("img/rounder.html");
+      $("#svgfile").load("img/rounder1.html");
       $(window).load(function () {
         var legacy_img = $(".legacy_img").outerHeight();
         $(".ayurvedic_legacy_intro").outerHeight(legacy_img);
@@ -275,8 +315,10 @@
           // EachClassOffset = EachClass.offset();
           // console.log(EachClassOffset.top);
         });
-        var slider = $(".slider").outerWidth();
-        $(".cell").outerWidth(slider);
+        if (winW < 767) {
+          var slider = $(".slider").outerWidth();
+          $(".cell").outerWidth(slider);
+        }
       });
       $(".slider").roundSlider({
         circleShape: "half-top",
@@ -291,27 +333,23 @@
         min: 0,
         max: 16,
         tooltipFormat: "tooltipVal1",
+        handleSize: 50,
       });
       function tooltipVal1(args) {
         console.log(args);
-        // if (args.value == 1) {
-        //   $("dot" + (args.value + 1)).show();
-        // } else {
-        //   $("dot" + args.value + 1).hide();
-        // }
+        // $(".hoverblock").hide();
+        // $(".timeline").hide();
+        // $(".dot" + (args.value + 1)).show();
+        // $(".timeline" + (args.value + 1)).show();
         $(".hoverblock").hide();
-        $(".timeline").hide();
+        $(".timeline").removeClass("timeline_animate");
         $(".dot" + (args.value + 1)).show();
-        $(".timeline" + (args.value + 1)).show();
-        // console.log(
-        //   "#timeline" + args.value,
-        //   $("#timeline" + args.value).addClass("active")
-        // );
+        $(".timeline" + (args.value + 1)).addClass("timeline_animate");
       }
       $("#slider").roundSlider({
         radius: 384,
         value: 0,
-        rangeColor: "#f4e9e1",
+        rangeColor: "#ECDDCD",
       });
       $(".banner_slider").slick({
         dots: false,
